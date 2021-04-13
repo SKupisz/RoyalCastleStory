@@ -1,0 +1,87 @@
+.block-center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.box-sides{
+    .content{
+        width: inherit;
+        height: inherit;
+        position: relative;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,.7);
+        color: white;
+    }
+    .welcome-header,.describe-header,.nowadays-header{
+        width: calc(90% - 10px);
+        padding: 10px;
+        font-size: 2.3em;
+        font-family: "Bebas Neue",sans-serif;
+        margin-bottom: 40px;
+        letter-spacing: 0.07em;
+    }
+}
+.front{
+    background: url("../img/FrontPhoto.jpg");
+    .describe{
+        width: calc(80% - 20px);
+        padding: 10px;
+        text-align: center;
+        font-size: 1.3em;
+        font-family: "Oswald",sans-serif;
+        letter-spacing: 0.05em;
+        margin-bottom: 50px;
+    }
+    .instructions{
+        position: relative;
+        top: 2vh;
+        font-size: 1.1em;
+        font-family: "Bebas Neue",sans-serif;
+    }
+}
+.right{
+    background: url("../img/RightPhoto.jpg");
+    .story{
+        width: calc(90% - 10px);
+        padding: 5px;
+        text-align: center;
+        font-size: 0.9em;
+        font-family: "Oswald",sans-serif;
+    }
+}
+.back{
+    background: url("../img/BackPhoto.jpg");
+}
+.left{
+    background: url("../img/LeftPhoto.jpg");
+    .credits-header{
+        width: calc(95% - 10px);
+        padding: 5px;
+        text-align: center;
+        font-size: 2.4em;
+        font-family: "Bebas Neue",sans-serif;
+        letter-spacing: 0.06em;
+        text-shadow: 1px 1px 10px #888;
+        margin-bottom: 90px;
+    }
+    .author-span{
+        width: calc(70% - 10px);
+        padding: 5px;
+        text-align: center;
+        font-size: 1.1em;
+        font-family: "Oswald",sans-serif;
+        margin-bottom: 30px;
+    }
+    .github-link{
+        color: white;
+        cursor: pointer;
+        font-size: 1.2em;
+        font-family: "Oswald",sans-serif;
+        letter-spacing: 0.05em;
+        transition: all 0.4s;
+    }
+    .github-link:hover{
+        filter: brightness(70%);
+    }
+}
