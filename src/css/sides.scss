@@ -21,6 +21,13 @@
         margin-bottom: 40px;
         letter-spacing: 0.07em;
     }
+    .story{
+        width: calc(90% - 10px);
+        padding: 5px;
+        text-align: center;
+        font-size: 0.9em;
+        font-family: "Oswald",sans-serif;
+    }
 }
 .front{
     background: url("../img/FrontPhoto.jpg");
@@ -42,13 +49,6 @@
 }
 .right{
     background: url("../img/RightPhoto.jpg");
-    .story{
-        width: calc(90% - 10px);
-        padding: 5px;
-        text-align: center;
-        font-size: 0.9em;
-        font-family: "Oswald",sans-serif;
-    }
 }
 .back{
     background: url("../img/BackPhoto.jpg");

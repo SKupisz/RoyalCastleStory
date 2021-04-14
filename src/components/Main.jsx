@@ -11,6 +11,7 @@ export default class Main extends React.Component{
 
         this.state = {
             currentRotationY: 0,
+            isAutomaticallyRotating: false,
             isAllowed: true,
             boxStyle: {},
             linkToGithub: "https://github.com/SKupisz/RoyalCastleStory"
@@ -18,6 +19,9 @@ export default class Main extends React.Component{
 
         this.turnTheCube = this.turnTheCube.bind(this);
         this.rotateYAxis = this.rotateYAxis.bind(this);
+        this.manageTheRotation = this.manageTheRotation.bind(this);
+
+        this.readTheData = require("./data.json");
 
     }
     rotateYAxis(mode){
@@ -36,17 +40,37 @@ export default class Main extends React.Component{
         });
     }
     turnTheCube(event){
-        console.log(event.key);
-        if(event.key === "d" && this.state.isAllowed === true){
+        if(event.key === "d" && this.state.isAllowed === true && this.state.isAutomaticallyRotating === false){
             this.setState({
                 isAllowed: false
             }, () => {this.rotateYAxis(-1);});
         }
-        else if(event.key === "a" && this.state.isAllowed === true){
+        else if(event.key === "a" && this.state.isAllowed === true && this.state.isAutomaticallyRotating === false){
             this.setState({
                 isAllowed: false
             }, () => {this.rotateYAxis(1);});
         }
+    }
+    manageTheRotation(){
+        this.setState({
+            isAutomaticallyRotating: !this.state.isAutomaticallyRotating
+        }, () => {
+            if(this.boxRef.current.classList.contains("box-rotation")){
+                this.setState({
+                    isAllowed: true
+                }, () => {
+                    this.boxRef.current.classList.remove("box-rotation");
+                });
+                
+            }
+            else{
+                this.setState({
+                    isAllowed: false
+                }, () => {
+                    this.boxRef.current.classList.add("box-rotation");
+                });
+            }
+        });
     }
     render(){
         return <div className="container">
@@ -66,7 +90,7 @@ export default class Main extends React.Component{
                 <div className="content">
                         <header className="nowadays-header block-center">Royal Castle nowadays</header>
                         <div className="story block-center">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum at dolor ullam doloremque nostrum repudiandae nesciunt alias voluptas dicta, nobis natus cumque culpa laudantium optio assumenda, officia placeat sunt porro?
+                            {this.readTheData["Nowadays"]}
                         </div>
                     </div>
                 </div>
@@ -81,11 +105,12 @@ export default class Main extends React.Component{
                     <div className="content">
                         <header className="describe-header block-center">Short history</header>
                         <div className="story block-center">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum at dolor ullam doloremque nostrum repudiandae nesciunt alias voluptas dicta, nobis natus cumque culpa laudantium optio assumenda, officia placeat sunt porro?
+                            {this.readTheData["First describe"]}
                         </div>
                     </div>
                 </div>
             </div>
+            <button className="automatic-rotation block-center" onClick = {() => {this.manageTheRotation()}}>Automatic rotation</button>
         </div>;
     }
 }
